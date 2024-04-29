@@ -4,13 +4,16 @@
 
 // Add an App component that renders at least three copies of the Person component on the page.
 const Person = (props) => {
-  const HOBBIES = props.hobbies.map((hobby) => <li>{hobby}</li>);
   return (
     <div>
       <p> Learn some information about this person</p>
       <h3>{props.age > 18 ? "please go vote!" : "you must be 18 "} </h3>
       <h2>Hobbies</h2>
-      <ul>{HOBBIES}</ul>
+      <ul>
+        {props.hobbies.map((hobby, idx) => (
+          <li key={idx}>{hobby}</li>
+        ))}
+      </ul>
     </div>
   );
 };
